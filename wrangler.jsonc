@@ -4,7 +4,7 @@
  */
  {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "v1-edge-inspector-b20bf2cb-cd53-432d-bc68-2bc7c183fbec",
+	"name": "ml-scoring-worker",
 	"main": "worker/index.ts",
 	"compatibility_date": "2025-04-24",
 	"assets": {
