@@ -28,22 +28,6 @@ Follow these instructions to get a local copy up and running for development and
 bun pm i -g wrangler
 wrangler login
 ```
-### Installation
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/edge_inspector.git
-    cd edge_inspector
-    ```
-2.  **Install dependencies:**
-    ```bash
-    bun install
-    ```
-### Running Locally
-To start the development server, which includes the Vite frontend and a local instance of the Cloudflare Worker, run:
-```bash
-bun dev
-```
-This will start the application on `http://localhost:3000` (or another available port). The Vite development server will automatically proxy requests from `/api/*` to your local Worker.
 ## Configuration
 To view the security scores in the application, you need to configure Cloudflare Transform Rules to expose the necessary data as request headers. The Cloudflare Worker can only read headers from the incoming request, and these security scores are not exposed by default.
 Follow these steps to set up the required Transform Rules in your Cloudflare dashboard:
@@ -62,7 +46,27 @@ Waf-Rce-Score        cf.waf.score.rce
 Waf-Sqi-Score        cf.waf.score.sqli
 Waf-Xss-Score        cf.waf.score.xss
 ```
-8.  Save and deploy the rule. The headers will now be attached to incoming requests and visible in the Cloudflare Machine Learning Model scores application.
+Save and deploy the rule. The headers will now be attached to incoming requests and visible in the Cloudflare Machine Learning Model scores application.
+
+
+### Installation
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/edge_inspector.git
+    cd edge_inspector
+    ```
+2.  **Install dependencies:**
+    ```bash
+    bun install
+    ```
+### Running Locally
+To start the development server, which includes the Vite frontend and a local instance of the Cloudflare Worker, run:
+```bash
+bun dev
+```
+This will start the application on `http://localhost:3000` (or another available port). The Vite development server will automatically proxy requests from `/api/*` to your local Worker.
+
+
 ## Development
 -   **Frontend**: All React components and pages are located in the `src/` directory.
 -   **Backend**: The Cloudflare Worker API logic is in the `worker/` directory. New API routes should be added to `worker/userRoutes.ts`.
@@ -80,7 +84,9 @@ This project is designed for a one-click deployment to Cloudflare Pages.
     ```
     Wrangler will guide you through the deployment process.
 Alternatively, you can deploy directly from your GitHub repository.
+
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/adz80/cloudflare-ml-scorer)
+
 ## API Endpoint
 The application uses a single backend endpoint to process requests.
 ### `POST /api/inspect`
