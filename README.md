@@ -1,6 +1,8 @@
 # Cloudflare Machine Learning Model scores
 A minimalist web utility to inspect WAF and Bot security scores by submitting sample HTTP payloads to a Cloudflare Worker backend.
+
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/adz80/cloudflare-ml-scorer)
+
 ## Description
 Cloudflare Machine Learning Model scores is a sleek, minimalist web utility designed for developers and security professionals to analyze the security scores of HTTP payloads as processed by a Web Application Firewall (WAF). The application features a clean, single-page interface where a user can input a sample JSON payload, select an HTTP method (POST or PUT), and submit it for inspection.
 Upon submission, the frontend sends the payload to a dedicated Cloudflare Worker backend API. The worker inspects the incoming request for specific security-related headers added by Cloudflare's WAF (e.g., Bot Score, WAF Attack Score). It then returns these values to the frontend, which displays them in a clear, organized, and aesthetically pleasing table. The entire experience is designed to be fast, intuitive, and visually uncluttered, focusing on the core task without distractions.
